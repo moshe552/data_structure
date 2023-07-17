@@ -1,7 +1,4 @@
 class Node:
-    num_of_nodes = 0
-
-    def __init__(self, value):
+    def __init__(self, value, next=None):
         self.value = value
-        self.next = None
-        Node.num_of_nodes += 1
+        self.next = next

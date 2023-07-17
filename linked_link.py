@@ -1,15 +1,18 @@
 from node import Node
 
 
-class LinkedLink:
+class LinkedList:
+
     def __init__(self):
         self.head = None
+        self.num_of_nodes = 0
 
     def add_first(self, value):
         node = Node(value)
         next_node = self.head
         self.head = node
         self.head.next = next_node
+        self.num_of_nodes += 1
 
     def append(self, value):
         node = Node(value)
@@ -20,19 +23,20 @@ class LinkedLink:
             while current_node.next is not None:
                 current_node = current_node.next
             current_node.next = node
+        self.num_of_nodes += 1
 
     def remove(self, value):
         current_node = self.head
         if current_node.value == value:
             self.head = current_node.next
-            self.head.num_of_nodes -= 1
+            self.num_of_nodes -= 1
             return
         else:
             while current_node.next is not None:
                 if current_node.next.value == value:
                     next_node = current_node.next.next
                     current_node.next = next_node
-                    self.head.num_of_nodes -= 1
+                    self.num_of_nodes -= 1
                 else:
                     current_node = current_node.next
 
@@ -58,15 +62,16 @@ class LinkedLink:
 
     def length(self):
         if self.head is not None:
-            return self.head.num_of_nodes
+            return self.num_of_nodes
         else:
             return 0
 
     def print_linked_list(self):
         if self.head is not None:
             current_node = self.head
+            print('[', end='')
             while current_node is not None:
-                print(current_node.value)
+                print(current_node.value, ', ', end='')
                 current_node = current_node.next
-
+            print(']', end='')
 

@@ -1,8 +1,8 @@
-from linked_link import LinkedLink
+from linked_link import LinkedList
 
 
 def main():
-    linked_link = LinkedLink()
+    linked_link = LinkedList()
     linked_link.append(1)
     linked_link.append(2)
     linked_link.append(2)
